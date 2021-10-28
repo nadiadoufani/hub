@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<div class="container">
+<section class="form">
+
+<div class="row">
+
+
+
+        <div class="col"> </div>
+          <div class="col-6" >
+
+          {{form_start(reservationForm)}}
+         
+
+
+
+        <div class="mb-3">
+            
+            {{form_row(reservationForm.idcinema,{'attr':{'class':'form-control'}})}}
+        </div>
+
+
+
+         <div class="mb-3">
+          
+            {{form_row(reservationForm.idfilm,{'attr':{'class':'form-control'}})}}
+        </div>
+
+
+
+         <div class="mb-3">
+          
+            {{form_row(reservationForm.nombredeticket,{'attr':{'class':'form-control'}})}}
+        </div>
+        {{form_end(reservationForm)}}
+
+          </div>
+          <div class="col"></div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

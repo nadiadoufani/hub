@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
+<div class="container">
+{% for item in film %}
+<a href="{{path('home_show',{'id':item.id})}}">
+  <div class="contents one">
+    <div class="polar">
+     
+      <img src="/images/{{ item.image }}" alt="">
+      <div class="caption">{{ item.nomdefilm}}</div>
+    </div>
+  </div>
+  </a>
+  
+  
+
+  {% endfor %}
+</div>
+<style>
+
+.polar{
+  background:white;
+  padding:1rem;
+  box-shadow: 0 0.5rem 1rem gray;
+  
+}
+.polar img{
+  max-width:100%;
+  height:auto;
+  
+}
+.container{
+  margin-left:35px;
+  margin-top:40px;
+}
+.caption{
+ font-size:1rem;
+  text-align:center;
+  line-height:1.5em;
+}
+.contents{
+  width:30%;
+  display:inline-block;
+  margin-top:2rem;
+  filter:grayscale(100%);
+  
+}
+.contents .polar:before{
+  content:'';
+  position:absolute;
+  z-index=-1;
+  transtion:all 0.30s;
+  
+}
+
+div.one{ transform: rotate(10deg);}
+div.two{
+   transform: rotate(-10deg);
+}
+div.three{
+   transform: rotate(10deg);
+}
+.contents:hover{
+  filter:grayscale(0%);
+   transform: rotate(0);
+  -ms-transform: scale(1.2); 
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2); 
+
+}
+
+</style>
+{% endblock %}
